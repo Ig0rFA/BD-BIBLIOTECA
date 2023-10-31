@@ -5,7 +5,7 @@ Você foi designado para criar um sistema de biblioteca. Aqui estão os detalhes
 
 ## TABELAS:
 /*Inicio criacao tabelas*/
-
+```
 create table autores (
     id int primary key auto_increment,
     nome varchar(100) not null,
@@ -48,7 +48,7 @@ create table emprestimos (
     foreign key (livro_id) references livros(id),
     foreign key (cliente_id) references clientes(id)
 );
-
+```
 /*Fim criacao tabelas*/
 		
 ## RELACIONAMENTOS:
@@ -56,6 +56,7 @@ create table emprestimos (
 
 ## Inserts:
 /*Inicio inserts*/
+```
 insert into autores (id, nome, data_nascimento, nacionalidade) values (01,'Jorge Amado', '1912-08-10', 'Brasileiro');
 insert into autores (id, nome, data_nascimento, nacionalidade) values (02,'Paulo Coelho', '1947-08-24', 'Brasileiro');
 insert into autores (id, nome, data_nascimento, nacionalidade) values (03,'Machado de Assis', '1839-06-21', 'Brasileiro');
@@ -162,6 +163,7 @@ insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devoluc
 insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devolucao, status) values (18, 3, 18, '2023-10-27', '2023-10-29', 'Atrasado'),
 insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devolucao, status) values (19, 1, 19, '2023-11-27', '2023-11-29', 'Pendente'),
 insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devolucao, status) values (20, 2, 20, '2023-12-27', '2023-12-29', 'Devolvido');
+```
 /*Fim inserts*/
 
 		
@@ -170,6 +172,7 @@ insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devoluc
 
 -- Crie outra stored procedure para recuperar a lista de livros emprestados por um cliente específico.
 /*Inicio stored procedure novo emprestimo*/
+```
 delimiter $$
 create procedure Registra_Novo_Emprestimo (
 IN livro_id int,
@@ -194,10 +197,12 @@ set message_text = 'O livro nao esta disponivel para emprestimo';
 end if;
 end $$
 delimiter ;
+```
 /*Fim stored procedure novo emprestimo*/
 
 -- Crie outra stored procedure para recuperar a lista de livros emprestados por um cliente específico.
 /*Inicio stored procedure recuperar livros emprestados*/
+```
 delimiter $$
 create procedure Recuperar_Livros_Emprestados (
 in cliente_id int
@@ -208,11 +213,13 @@ select * from emprestimos where id = cliente_id;
 
 end $$
 delimiter ;
+```
 /*Fim stored procedure recuperar livros emprestados*/
 		
 
 -- Implemente uma stored procedure que calcule multas para empréstimos atrasados.
-      /*Inicio stored procedure calcular multas*/
+/*Inicio stored procedure calcular multas*/
+```
 delimiter $$
 create procedure Calcular_Multa_Livros (
 in cliente_id int
@@ -226,19 +233,24 @@ update emprestimos set status = 'atrasado' where data_devolucao < CURRENT_DATE;
 
 end $$
 delimiter ;
+```
 /*Fim stored procedure calcular multas*/
     
 ## Views:
 
 -- Crie uma view que mostre os livros disponíveis para empréstimo, excluindo aqueles que já foram emprestados.
 /*Inicio views livros disponiveis*/
+```
 create view livros_disponiveis as select * from livros where estoque > 0;
+```
 /*Fim views livros disponiveis*/
-
+```
 select * from livros_disponiveis;
-
+```
 /*Inicio views livros disponiveis*/
+```
 create view Emprestimos_Detalhado  as select * from emprestimos inner join  livros on emprestimos.livro_id = livros.id;
+```
 /*Fim views livros disponiveis*/
 
 ## Link SQL completo:
