@@ -1,7 +1,13 @@
 # BD-BIBLIOTECA
 ## Descrição
 
-Você foi designado para criar um sistema de biblioteca. Aqui estão os detalhes adicionais:
+Você foi designado para criar um sistema de biblioteca. 
+
+Aqui estão os detalhes adicionais:
+Livros: Armazene informações sobre cada livro, incluindo título, ISBN, ano de publicação e um identificador exclusivo.
+Autores: Registre informações sobre os autores, como nome, data de nascimento e nacionalidade.
+Editoras: Mantenha detalhes sobre as editoras, como nome e endereço.
+Empréstimos: Controle os empréstimos de livros, incluindo a data de empréstimo e de devolução, bem como o status do empréstimo (pendente, devolvido, atrasado).
 
 ## TABELAS:
 /*Inicio criacao tabelas*/
@@ -170,7 +176,7 @@ insert into emprestimos (id, livro_id, cliente_id, data_emprestimo, data_devoluc
 
 ## STORE PROCEDURE:
 
--- Crie outra stored procedure para recuperar a lista de livros emprestados por um cliente específico.
+1-Crie uma stored procedure para registrar um novo empréstimo, verificando a disponibilidade do livro e atualizando o estoque.
 /*Inicio stored procedure novo emprestimo*/
 ```
 delimiter $$
@@ -200,7 +206,7 @@ delimiter ;
 ```
 /*Fim stored procedure novo emprestimo*/
 
--- Crie outra stored procedure para recuperar a lista de livros emprestados por um cliente específico.
+2- Crie outra stored procedure para recuperar a lista de livros emprestados por um cliente específico.
 /*Inicio stored procedure recuperar livros emprestados*/
 ```
 delimiter $$
@@ -217,7 +223,7 @@ delimiter ;
 /*Fim stored procedure recuperar livros emprestados*/
 		
 
--- Implemente uma stored procedure que calcule multas para empréstimos atrasados.
+3-Implemente uma stored procedure que calcule multas para empréstimos atrasados.
 /*Inicio stored procedure calcular multas*/
 ```
 delimiter $$
@@ -238,7 +244,7 @@ delimiter ;
     
 ## Views:
 
--- Crie uma view que mostre os livros disponíveis para empréstimo, excluindo aqueles que já foram emprestados.
+4- Crie uma view que mostre os livros disponíveis para empréstimo, excluindo aqueles que já foram emprestados.
 /*Inicio views livros disponiveis*/
 ```
 create view livros_disponiveis as select * from livros where estoque > 0;
@@ -247,11 +253,12 @@ create view livros_disponiveis as select * from livros where estoque > 0;
 ```
 select * from livros_disponiveis;
 ```
-/*Inicio views livros disponiveis*/
+5-Implemente uma view que forneça uma lista de todos os empréstimos atuais, incluindo os detalhes dos livros emprestados e dos clientes.
+/*Inicio views empresitmos gerais*/
 ```
 create view Emprestimos_Detalhado  as select * from emprestimos inner join  livros on emprestimos.livro_id = livros.id;
 ```
-/*Fim views livros disponiveis*/
+/*Fim views empresitmos gerais*/
 
 ## Link SQL completo:
 ![LINK](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Biblioteca.sql)
