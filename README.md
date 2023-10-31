@@ -254,5 +254,5 @@ create view Emprestimos_Detalhado  as select * from emprestimos inner join  livr
 /*Fim views livros disponiveis*/
 
 ## Link SQL completo:
-![exer](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Biblioteca.sql)
+![LINK](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Biblioteca.sql)
 
