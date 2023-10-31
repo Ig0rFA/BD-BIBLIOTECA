@@ -52,7 +52,7 @@ create table emprestimos (
 /*Fim criacao tabelas*/
 		
 ## RELACIONAMENTOS:
-![exer1](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Modelagem%20Biblioteca.png)
+![exer](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Modelagem%20Biblioteca.png)
 
 ## Inserts:
 /*Inicio inserts*/
@@ -240,3 +240,7 @@ select * from livros_disponiveis;
 /*Inicio views livros disponiveis*/
 create view Emprestimos_Detalhado  as select * from emprestimos inner join  livros on emprestimos.livro_id = livros.id;
 /*Fim views livros disponiveis*/
+
+## Link SQL completo:
+![exer](https://github.com/Ig0rFA/BD-BIBLIOTECA/blob/main/BD-BIBLIOTECA/Biblioteca.sql)
+
